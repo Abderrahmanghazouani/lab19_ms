@@ -1,0 +1,16 @@
+# Configuration statique de l'etape 5 (desactivee : renommee en app.yml a l'etape 6).
+# Pour la reactiver avec la Gateway reactive, renommer en application.yml.
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: r1
+              uri: "http://localhost:8088"
+              predicates:
+                - Path=/clients/**
+            - id: r2
+              uri: "http://localhost:8088"
+              predicates:
+                - Path=/client/**
